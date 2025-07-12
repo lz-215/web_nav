@@ -29,17 +29,17 @@ export default function Navigation() {
 
   return (
     <>
-      <header className='bg-frosted-glass sticky left-0 top-0 z-50 flex h-[64px] bg-[#252A464A] px-5 blur-[60%] filter lg:px-0'>
+      <header className='bg-frosted-glass sticky left-0 top-0 z-50 flex h-[64px] bg-[#252A464A] px-5 blur-[60%] filter backdrop-blur-xl backdrop-saturate-150 border-b border-white/10 transition-all duration-300 lg:px-0'>
         <nav className='mx-auto flex max-w-pc flex-1 items-center'>
           <div>
-            <Link className='hover:opacity-80' href='/' title={t('title')}>
+            <Link className='hover:opacity-80 transition-all duration-200 hover:scale-105' href='/' title={t('title')}>
               <BaseImage
                 src='/images/tap4-ai.svg'
                 alt={t('title')}
                 title={t('title')}
                 width={64}
                 height={64}
-                className='size-[58px] lg:size-16'
+                className='size-[58px] lg:size-16 transition-transform duration-200'
               />
             </Link>
           </div>
@@ -50,12 +50,13 @@ export default function Navigation() {
                 <Link key={item.code} href={item.href} title={item.code}>
                   <li
                     className={cn(
-                      'flex h-full items-center text-muted-foreground hover:text-foreground',
+                      'flex h-full items-center text-muted-foreground hover:text-foreground transition-all duration-200 relative group',
                       pathname === item.href && 'text-foreground',
                       pathname.includes(item.href) && item.href !== '/' && 'text-foreground',
                     )}
                   >
                     {item.label}
+                    <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full'></span>
                   </li>
                 </Link>
               ))}
@@ -65,7 +66,7 @@ export default function Navigation() {
               <button
                 type='button'
                 aria-label='Toggle theme'
-                className='rounded p-2 hover:bg-white/10 transition-colors'
+                className='rounded-lg p-2 hover:bg-white/10 transition-all duration-200 hover:scale-110 active:scale-95'
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               >
                 {theme === 'dark' ? <Sun className='size-5 text-yellow-400' /> : <Moon className='size-5 text-blue-500' />}
