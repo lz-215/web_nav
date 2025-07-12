@@ -74,22 +74,22 @@ export default function Footer() {
   ];
 
   return (
-    <footer className='w-full bg-[#15141A]'>
+    <footer className='w-full bg-background'>
       <div className='mx-auto flex min-h-[251px] max-w-pc flex-col items-center justify-between p-10 pb-5 lg:h-[180px] lg:flex-row lg:px-0 lg:pb-10'>
         <div className='flex flex-col items-center lg:items-stretch'>
-          <p className='text-xl font-bold text-white lg:h-8 lg:text-[32px]'>{t('title')}</p>
-          <p className='text-xs'>{t('subTitle')}</p>
+          <p className='text-xl font-bold text-foreground lg:h-8 lg:text-[32px]'>{t('title')}</p>
+          <p className='text-xs text-muted-foreground'>{t('subTitle')}</p>
         </div>
         <div className='mt-5 flex flex-col items-center gap-y-5 lg:mt-0 lg:flex-row lg:items-stretch lg:gap-x-10'>
           <div className='flex w-full flex-col gap-2'>
-            <p className='font-bold'>{t('support')}</p>
+            <p className='font-bold text-foreground'>{t('support')}</p>
             {SupportLinks.map((item) => (
               <a
                 href={item.href}
                 key={item.href}
                 target='_blank'
                 rel='noreferrer'
-                className='text-xs hover:opacity-70 lg:text-sm'
+                className='text-xs text-muted-foreground hover:opacity-70 lg:text-sm'
                 title={item.title}
               >
                 {item.title}
@@ -102,7 +102,7 @@ export default function Footer() {
             ))}
             <a
               href={`mailto:${CONTACT_US_EMAIL}`}
-              className='whitespace-nowrap text-xs hover:opacity-70 lg:text-sm'
+              className='whitespace-nowrap text-xs text-muted-foreground hover:opacity-70 lg:text-sm'
               title={t('contactUs')}
               type='email'
             >

@@ -11,6 +11,7 @@ import GoogleAdScript from '@/components/ad/GoogleAdScript';
 import SeoScript from '@/components/seo/SeoScript';
 
 import Loading from './loading';
+import { ThemeProvider } from 'next-themes';
 
 export default function RootLayout({
   children,
@@ -22,25 +23,27 @@ export default function RootLayout({
   const messages = useMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning className='dark'>
+    <html lang={locale} suppressHydrationWarning>
       <body className='relative mx-auto flex min-h-screen flex-col bg-tap4-black text-white'>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Toaster
-            position='top-center'
-            toastOptions={{
-              classNames: {
-                error: 'bg-red-400',
-                success: 'text-green-400',
-                warning: 'text-yellow-400',
-                info: 'bg-blue-400',
-              },
-            }}
-          />
-          <Navigation />
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-        </NextIntlClientProvider>
-        <SeoScript />
-        <GoogleAdScript />
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Toaster
+              position='top-center'
+              toastOptions={{
+                classNames: {
+                  error: 'bg-red-400',
+                  success: 'text-green-400',
+                  warning: 'text-yellow-400',
+                  info: 'bg-blue-400',
+                },
+              }}
+            />
+            <Navigation />
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+          </NextIntlClientProvider>
+          <SeoScript />
+          <GoogleAdScript />
+        </ThemeProvider>
       </body>
     </html>
   );

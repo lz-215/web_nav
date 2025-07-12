@@ -14,22 +14,22 @@ export default function DesktopTable() {
     <div className='mb-10 hidden w-full lg:block'>
       <Table className='border-separate border-spacing-y-3'>
         <TableHeader>
-          <TableRow className='tr-rounded h-16 rounded-[4px] border-none bg-[#353746] hover:bg-[#353746]'>
-            <TableHead className='w-[100px] text-2xl font-bold text-white'>{t('da')}</TableHead>
-            <TableHead className='w-[200px] text-2xl font-bold text-white'>{t('website')}</TableHead>
-            <TableHead className='w-[200px] text-2xl font-bold text-white'>{t('tags')}</TableHead>
-            <TableHead className='w-[200px] text-2xl font-bold text-white'>{t('price')}</TableHead>
-            <TableHead className='w-16 text-2xl font-bold text-white'>{t('submission')}</TableHead>
+          <TableRow className='tr-rounded h-16 rounded-[4px] border-none bg-muted hover:bg-muted'>
+            <TableHead className='w-[100px] text-2xl font-bold text-muted-foreground'>{t('da')}</TableHead>
+            <TableHead className='w-[200px] text-2xl font-bold text-muted-foreground'>{t('website')}</TableHead>
+            <TableHead className='w-[200px] text-2xl font-bold text-muted-foreground'>{t('tags')}</TableHead>
+            <TableHead className='w-[200px] text-2xl font-bold text-muted-foreground'>{t('price')}</TableHead>
+            <TableHead className='w-16 text-2xl font-bold text-muted-foreground'>{t('submission')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody className='space-y-3'>
           {STARTUP_LIST.map((item) => (
             <TableRow
               key={item.DA}
-              className='tr-rounded h-16 rounded-[4px] border-none bg-[#2C2D36] hover:bg-[#353746]'
+              className='tr-rounded h-16 rounded-[4px] border-none bg-card hover:bg-muted'
             >
-              <TableCell className='text-sm'>{item.DA}</TableCell>
-              <TableCell className='text-[18px]'>{item.Website}</TableCell>
+              <TableCell className='text-sm text-card-foreground'>{item.DA}</TableCell>
+              <TableCell className='text-[18px] text-card-foreground'>{item.Website}</TableCell>
               <TableCell className='flex gap-1'>
                 {item.Tag ? item.Tag.split(',').map((tag) => <TagItem key={tag} title={tag} />) : null}
               </TableCell>
@@ -41,9 +41,9 @@ export default function DesktopTable() {
                   href={item.URL}
                   target='_blank'
                   rel='noreferrer'
-                  className='flex-center h-10 w-full rounded-[4px] border border-[#686B84] hover:opacity-80'
+                  className='flex-center h-10 w-full rounded-[4px] border border-border hover:opacity-80'
                 >
-                  <SquareArrowOutUpRight className='text-[#686B84]' />
+                  <SquareArrowOutUpRight className='text-muted-foreground' />
                   <span className='sr-only'>{item.Website}</span>
                 </a>
               </TableCell>

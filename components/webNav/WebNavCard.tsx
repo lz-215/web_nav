@@ -19,20 +19,20 @@ export default function WebNavCard({ name, thumbnail_url, title, url, content }:
           height={174}
           className='aspect-[310/174] w-full rounded-xl bg-white/40 hover:opacity-70'
         />
-        <div className='absolute inset-0 z-10 hidden items-center justify-center gap-1 rounded-xl bg-black bg-opacity-50 text-xl text-white transition-all duration-200 group-hover:flex'>
+        <div className='absolute inset-0 z-10 hidden items-center justify-center gap-1 rounded-xl bg-background/80 text-xl text-foreground transition-all duration-200 group-hover:flex'>
           {t('checkDetail')} <CircleArrowRight className='size-4' />
         </div>
       </Link>
       <div className='flex items-center justify-between px-[6px]'>
         <a href={url} title={title} target='_blank' rel='nofollow' className='hover:opacity-70'>
-          <h3 className='line-clamp-1 flex-1 text-sm font-bold lg:text-base'>{title}</h3>
+          <h3 className='line-clamp-1 flex-1 text-sm font-bold lg:text-base text-card-foreground'>{title}</h3>
         </a>
         <a href={url} title={title} target='_blank' rel='nofollow' className='hover:opacity-70'>
           <SquareArrowOutUpRight className='size-5' />
           <span className='sr-only'>{title}</span>
         </a>
       </div>
-      <p className='line-clamp-3 px-[6px] text-xs text-white/70 lg:line-clamp-5 lg:text-sm'>{content}</p>
+      <p className='line-clamp-3 px-[6px] text-xs text-muted-foreground lg:line-clamp-5 lg:text-sm'>{content}</p>
     </div>
   );
 }

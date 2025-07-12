@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
+import { Sun, Moon } from 'lucide-react';
 
 import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
@@ -16,6 +18,7 @@ import NavigationDrawer from './NavigationDrawer';
 export default function Navigation() {
   const t = useTranslations('Navigation');
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
 
   const [open, setOpen] = useState(false);
 
@@ -47,9 +50,9 @@ export default function Navigation() {
                 <Link key={item.code} href={item.href} title={item.code}>
                   <li
                     className={cn(
-                      'flex h-full items-center text-white/40 hover:text-white',
-                      pathname === item.href && 'text-white',
-                      pathname.includes(item.href) && item.href !== '/' && 'text-white',
+                      'flex h-full items-center text-muted-foreground hover:text-foreground',
+                      pathname === item.href && 'text-foreground',
+                      pathname.includes(item.href) && item.href !== '/' && 'text-foreground',
                     )}
                   >
                     {item.label}
@@ -59,6 +62,14 @@ export default function Navigation() {
             </ul>
             <div className='flex items-center gap-x-3'>
               <LocaleSwitcher />
+              <button
+                type='button'
+                aria-label='Toggle theme'
+                className='rounded p-2 hover:bg-white/10 transition-colors'
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              >
+                {theme === 'dark' ? <Sun className='size-5 text-yellow-400' /> : <Moon className='size-5 text-blue-500' />}
+              </button>
             </div>
           </div>
           {/* mobile */}
