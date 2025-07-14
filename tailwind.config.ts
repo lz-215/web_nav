@@ -14,7 +14,7 @@ const config = {
     },
     extend: {
       colors: {
-        'tap4-balck': '#222129',
+        'aidock-black': '#222129',
         'dark-bg': '#1E1B24',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -60,16 +60,28 @@ const config = {
       },
       keyframes: {
         'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
         },
         'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
+          },
         },
         'caret-blink': {
-          '0%,70%,100%': { opacity: '1' },
-          '20%,50%': { opacity: '0' },
+          '0%,70%,100%': {
+            opacity: '1',
+          },
+          '20%,50%': {
+            opacity: '0',
+          },
         },
       },
       animation: {

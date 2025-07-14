@@ -4,7 +4,7 @@ export default function Page() {
   const t = useTranslations('FooterNavigation.privacyPolicy');
 
   return (
-    <div className='prose mx-auto p-6 text-gray-200 prose-headings:text-gray-200'>
+    <div className='prose mx-auto p-6 text-foreground prose-headings:text-foreground prose-h1:font-bold prose-h2:font-bold'>
       <h1>{t('1-h1')}</h1>
       <p>{t('1-p')}</p>
 

@@ -1,14 +1,14 @@
-# 开源Tap4 AI Web UI
+# 开源AIDock Web UI
 
-这是一个由[Tap4 AI工具导航站](https://tap4.ai)开源的AI导航站项目。我们的目标是让大家很容易就拥有一个属于自己的AI导航站，
+这是一个由[AIDock导航站](https://aidock.ai)开源的AI导航站项目。我们的目标是让大家很容易就拥有一个属于自己的AI导航站，
 收录自己喜欢的AI工具产品。这个项目非常轻量级，维护简单，适合对AI导航站感兴趣的个人开发者，也适合对NextJs有兴趣的学习者，
 欢迎大家fork和star。
 
-[English](https://github.com/6677-ai/tap4-ai-webui/blob/main/README.md) | 简体中文
+[English](https://github.com/6677-ai/aidock-webui/blob/main/README.md) | 简体中文
 
-## 请在Product Hunt支持下Tap4 AI
+## 请在Product Hunt支持下AIDock
 
-<a href="https://www.producthunt.com/posts/ai-tools-directory-by-tap4-ai?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-ai&#0045;tools&#0045;directory&#0045;by&#0045;tap4&#0045;ai" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=464357&theme=light" alt="AI&#0032;Tools&#0032;Directory&#0032;by&#0032;Tap4&#0032;AI - Open&#0045;source&#0032;AI&#0032;navigation&#0032;&#0038;&#0032;discovery&#0032;with&#0032;multi&#0045;language | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://www.producthunt.com/posts/ai-tools-directory-by-aidock?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-ai&#0045;tools&#0045;directory&#0045;by&#0045;aidock" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=464357&theme=light" alt="AI&#0032;Tools&#0032;Directory&#0032;by&#0032;AIDock - Open&#0045;source&#0032;AI&#0032;navigation&#0032;&#0038;&#0032;discovery&#0032;with&#0032;multi&#0045;language | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 ## v2.0.0版本更新说明
 
@@ -197,17 +197,17 @@ pnpm dev
 
 ### 如何获得初始化需要的AI工具列表？
 
-可以通过Tap4 AI开源的来自其他导航站的13000+个AI工具列表导入(支持sql和csv)：
-[AI Source List](https://github.com/6677-ai/tap4-ai-webui/blob/main/ai_source_list)
+可以通过AIDock开源的来自其他导航站的13000+个AI工具列表导入(支持sql和csv)：
+[AI Source List](https://github.com/6677-ai/aidock-webui/blob/main/ai_source_list)
 
-## 打算在 Tap4.ai 上提交您的网站？
+## 打算在 aidock.ai 上提交您的网站？
 
-请打开：[Tap4 AI](https://tap4.ai/submit)
+请打开：[AIDock](https://aidock.ai/submit)
 
 ### 打算将您的网站添加到我们的 `/startup` 页面？
 
-- 在这里打开一个问题：[TAP4-AI-Directory](https://github.com/6677-ai/TAP4-AI-Directory/issues)
-- 给我们发邮件：[contact@tap4.ai](mailto:contact@tap4.ai)
+- 在这里打开一个问题：[AIDock](https://github.com/6677-ai/AIDock/issues)
+- 给我们发邮件：[contact@aidock.ai](mailto:contact@aidock.ai)
 
 ## 我们产品的链接
 

@@ -5,17 +5,17 @@
 @layer base {
   :root {
     --background: 206 100% 95%;
-    --foreground: 206 15% 18%;
-    --card: 206 30% 98%;
-    --card-foreground: 206 20% 10%;
+    --foreground: 215 28% 17%; /* #1e293b 深蓝灰 */
+    --card: 215 28% 98%;
+    --card-foreground: 215 20% 20%; /* #334155 */
     --popover: 206 100% 95%;
     --popover-foreground: 206 100% 0%;
     --primary: 206 81% 80%;
     --primary-foreground: 0 0% 0%;
     --secondary: 206 30% 70%;
     --secondary-foreground: 0 0% 0%;
-    --muted: 168 30% 85%;
-    --muted-foreground: 206 5% 35%;
+    --muted: 215 28% 90%;
+    --muted-foreground: 215 19% 48%; /* #64748b */
     --accent: 168 30% 80%;
     --accent-foreground: 206 5% 10%;
     --destructive: 0 100% 30%;
@@ -28,17 +28,17 @@
 
   .dark {
     --background: 206 50% 5%;
-    --foreground: 206 15% 92%;
-    --card: 206 30% 14%;
-    --card-foreground: 206 20% 98%;
+    --foreground: 215 28% 92%; /* #e2e8f0 亮蓝灰 */
+    --card: 215 28% 14%;
+    --card-foreground: 215 20% 90%; /* #cbd5e1 */
     --popover: 206 50% 5%;
     --popover-foreground: 206 5% 90%;
     --primary: 206 81% 80%;
     --primary-foreground: 0 0% 0%;
     --secondary: 206 30% 10%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 168 30% 15%;
-    --muted-foreground: 206 5% 60%;
+    --muted: 215 28% 15%;
+    --muted-foreground: 215 19% 70%; /* #94a3b8 */
     --accent: 168 30% 15%;
     --accent-foreground: 206 5% 90%;
     --destructive: 0 100% 30%;
@@ -92,6 +92,12 @@
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+}
+
+@layer components {
+  .btn-primary-dark {
+    color: hsl(var(--primary-foreground));
   }
 }
 

@@ -35,7 +35,7 @@ function LinkTag({
       href={href}
       title={title}
       className={cn(
-        'flex-center size-8 rounded-[4px] border border-transparent bg-transparent text-white/40 hover:cursor-pointer hover:bg-[#2C2D36]',
+        'flex-center size-8 rounded-[4px] border border-border bg-background text-muted-foreground hover:cursor-pointer hover:bg-muted hover:text-primary',
         className,
       )}
     >
@@ -62,7 +62,7 @@ function itemRender({
       <LinkTag
         href={route}
         title={page.toString()}
-        className={page === currentPage ? 'border-white bg-[#2C2D36] text-white' : ''}
+        className={page === currentPage ? 'border-primary bg-muted text-primary' : ''}
       >
         {page}
       </LinkTag>

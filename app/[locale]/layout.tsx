@@ -6,12 +6,12 @@ import Navigation from '@/components/home/Navigation';
 import './globals.css';
 
 import { Suspense } from 'react';
+import { ThemeProvider } from 'next-themes';
 
 import GoogleAdScript from '@/components/ad/GoogleAdScript';
 import SeoScript from '@/components/seo/SeoScript';
 
 import Loading from './loading';
-import { ThemeProvider } from 'next-themes';
 
 export default function RootLayout({
   children,
@@ -24,7 +24,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className='relative mx-auto flex min-h-screen flex-col bg-tap4-black text-white'>
+      <body className='relative mx-auto flex min-h-screen flex-col bg-aidock-black text-white'>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Toaster

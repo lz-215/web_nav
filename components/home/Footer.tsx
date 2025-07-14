@@ -19,7 +19,7 @@ function InfoLink({
     <Link
       href={href}
       title={title}
-      className='whitespace-nowrap text-xs hover:opacity-70 lg:text-sm'
+      className='whitespace-nowrap text-xs text-foreground hover:opacity-70 lg:text-sm'
       target={target}
       type={type}
     >
@@ -28,39 +28,8 @@ function InfoLink({
   );
 }
 
-export default function Footer() {
+export function Footer() {
   const t = useTranslations('Footer');
-
-  const SupportLinks = [
-    {
-      title: 'Chat o1',
-      href: 'https://chat4o.ai/',
-    },
-    {
-      title: 'Grok Image Generator',
-      href: 'https://grokimagegenerator.net/',
-    },
-    {
-      title: 'Flux AI Image Generator',
-      href: 'https://flux-ai.io/',
-    },
-    {
-      title: 'Photo to Video AI',
-      href: 'https://dreammachineai.online/',
-    },
-    {
-      title: 'Flux Pro Image Generator',
-      href: 'https://flux-pro.net/',
-    },
-    {
-      title: t('tap4'),
-      href: 'https://tap4.ai/',
-    },
-    {
-      title: t('tattoo'),
-      href: 'https://tattooai.design/',
-    },
-  ];
 
   const INFO_LIST = [
     {
@@ -75,42 +44,23 @@ export default function Footer() {
 
   return (
     <footer className='w-full bg-background'>
-      <div className='mx-auto flex min-h-[251px] max-w-pc flex-col items-center justify-between p-10 pb-5 lg:h-[180px] lg:flex-row lg:px-0 lg:pb-10'>
-        <div className='flex flex-col items-center lg:items-stretch'>
-          <p className='text-xl font-bold text-foreground lg:h-8 lg:text-[32px]'>{t('title')}</p>
-          <p className='text-xs text-muted-foreground'>{t('subTitle')}</p>
-        </div>
-        <div className='mt-5 flex flex-col items-center gap-y-5 lg:mt-0 lg:flex-row lg:items-stretch lg:gap-x-10'>
-          <div className='flex w-full flex-col gap-2'>
-            <p className='font-bold text-foreground'>{t('support')}</p>
-            {SupportLinks.map((item) => (
-              <a
-                href={item.href}
-                key={item.href}
-                target='_blank'
-                rel='noreferrer'
-                className='text-xs text-muted-foreground hover:opacity-70 lg:text-sm'
-                title={item.title}
-              >
-                {item.title}
-              </a>
-            ))}
-          </div>
-          <div className='grid grid-cols-2 gap-x-10 gap-y-5 lg:grid-cols-1 lg:gap-3'>
-            {INFO_LIST.map((item) => (
-              <InfoLink key={item.href} href={item.href} title={item.title} />
-            ))}
-            <a
-              href={`mailto:${CONTACT_US_EMAIL}`}
-              className='whitespace-nowrap text-xs text-muted-foreground hover:opacity-70 lg:text-sm'
-              title={t('contactUs')}
-              type='email'
-            >
-              {t('contactUs')}
-            </a>
-          </div>
+      <div className='mx-auto flex min-h-[80px] max-w-pc flex-col items-center justify-center p-6 lg:flex-row lg:justify-between lg:px-0'>
+        <div className='flex flex-row items-center gap-6'>
+          {INFO_LIST.map((item) => (
+            <InfoLink key={item.href} href={item.href} title={item.title} />
+          ))}
+          <a
+            href={`mailto:${CONTACT_US_EMAIL}`}
+            className='whitespace-nowrap text-xs text-muted-foreground hover:opacity-70 lg:text-sm'
+            title={t('contactUs')}
+            type='email'
+          >
+            {t('contactUs')}
+          </a>
         </div>
       </div>
     </footer>
   );
 }
+
+export default Footer;

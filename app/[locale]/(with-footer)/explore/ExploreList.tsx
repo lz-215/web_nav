@@ -8,7 +8,7 @@ import { TagList } from '../(home)/Tag';
 
 const WEB_PAGE_SIZE = 12;
 
-export default async function ExploreList({ pageNum }: { pageNum?: string }) {
+export default async function ExploreList({ pageNum, locale }: { pageNum?: string; locale: string }) {
   const supabase = createClient();
   const currentPage = pageNum ? Number(pageNum) : 1;
 
@@ -17,7 +17,7 @@ export default async function ExploreList({ pageNum }: { pageNum?: string }) {
   const end = start + WEB_PAGE_SIZE - 1;
 
   const [{ data: categoryList }, { data: navigationList, count }] = await Promise.all([
-    supabase.from('navigation_category').select(),
+    supabase.rpc('get_categories_by_lang', { lang_code: locale }),
     supabase
       .from('web_navigation')
       .select('*', { count: 'exact' })
@@ -34,7 +34,7 @@ export default async function ExploreList({ pageNum }: { pageNum?: string }) {
         <TagList
           data={categoryList!.map((item) => ({
             id: String(item.id),
-            name: item.name,
+            name: item.title, // 多语言 title
             href: `/category/${item.name}`,
           }))}
         />

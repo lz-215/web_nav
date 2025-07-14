@@ -30,10 +30,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 
 export const revalidate = RevalidateOneHour / 2;
 
-export default async function Page({ params }: { params: { search?: string } }) {
+export default async function Page({ params }: { params: { search?: string; locale: string } }) {
   const supabase = createClient();
   const t = await getTranslations('Home');
-  const { data: categoryList } = await supabase.from('navigation_category').select();
+  const { data: categoryList } = await supabase.rpc('get_categories_by_lang', { lang_code: params.locale });
   const { data: dataList } = await supabase
     .from('web_navigation')
     .select()
@@ -46,7 +46,7 @@ export default async function Page({ params }: { params: { search?: string } }) 
           <TagList
             data={categoryList!.map((item) => ({
               id: String(item.id),
-              name: item.name,
+              name: item.title, // 多语言 title
               href: `/category/${item.name}`,
             }))}
           />
