@@ -29,22 +29,22 @@
   .dark {
     --background: 0 0% 0%; /* 黑色 */
     --foreground: 0 0% 100%; /* 白色 */
-    --card: 215 28% 14%;
-    --card-foreground: 215 20% 90%; /* #cbd5e1 */
-    --popover: 206 50% 5%;
-    --popover-foreground: 206 5% 90%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
     --primary: 206 81% 80%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 206 30% 10%;
+    --secondary: 0 0% 0%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 215 28% 15%;
-    --muted-foreground: 215 19% 70%; /* #94a3b8 */
-    --accent: 168 30% 15%;
-    --accent-foreground: 206 5% 90%;
+    --muted: 0 0% 0%;
+    --muted-foreground: 0 0% 100%;
+    --accent: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 100% 30%;
-    --destructive-foreground: 206 5% 90%;
-    --border: 206 30% 18%;
-    --input: 206 30% 18%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
     --ring: 206 81% 80%;
     --radius: 0.5rem;
   }
