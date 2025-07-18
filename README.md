@@ -49,7 +49,7 @@ If you find the project helpful, please consider buying me a coffee:
 
 <a href="https://www.buymeacoffee.com/tap4ai0o" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
-If you are interested in the project, please add my WeChat: helloleo2023, note: "tap4 ai open source"
+If you are interested in the project, please add my WeChat: helloleo2023, note: "aidock open source"
 
 ## Deployment Instructions
 
@@ -85,7 +85,7 @@ NEXT_PUBLIC_SITE_URL="https://aidock.ai"
 GOOGLE_TRACKING_ID="G-XXXXXXX" GOOGLE_ADSENSE_URL="https://xxxx.googlesyndication.com/xxxxx/xxxxx"
 
 # Contact email at the bottom
-CONTACT_US_EMAIL="contact@aidock.ai"
+CONTACT_US_EMAIL="ytsgabcde01@2925.com"
 
 # Supabase database URL and key
 NEXT_PUBLIC_SUPABASE_URL="https://xxxyyyzzz.supabase.co"
@@ -150,7 +150,7 @@ NEXT_PUBLIC_SITE_URL="https://aidock.ai"
 GOOGLE_TRACKING_ID="G-XXXXXXX" GOOGLE_ADSENSE_URL="https://xxxx.googlesyndication.com/xxxxx/xxxxx"
 
 # Contact email at the bottom
-CONTACT_US_EMAIL="contact@aidock.ai"
+CONTACT_US_EMAIL="ytsgabcde01@2925.com"
 
 # Supabase database URL and key
 NEXT_PUBLIC_SUPABASE_URL="https://xxxyyyzzz.supabase.co" NEXT_PUBLIC_SUPABASE_ANON_KEY="XXX.YYY.ZZZ"

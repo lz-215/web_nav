@@ -24,7 +24,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className='relative mx-auto flex min-h-screen flex-col bg-aidock-black text-white'>
+      <body className='relative mx-auto flex min-h-screen flex-col bg-gradient-to-br from-blue-700 via-gray-300 to-purple-500 text-white'>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Toaster

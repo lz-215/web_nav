@@ -2,21 +2,18 @@
 
 import { useTranslations } from 'next-intl';
 
-import Faq from '@/components/Faq';
-
 import SubmitForm from './SubmitForm';
 
 export default function SubmitPageClient() {
   const t = useTranslations('Submit');
 
   return (
-    <div className='mx-auto max-w-pc'>
-      <div className='flex-y-center my-3 flex lg:my-10'>
-        <h1 className='text-5xl font-bold'>{t('title')}</h1>
-        <h2 className='mt-[5px] text-sm font-bold lg:my-3'>{t('subTitle')}</h2>
+    <div className='mx-auto flex min-h-screen max-w-pc flex-col justify-center text-foreground'>
+      <div className='flex flex-col items-center justify-center'>
+        <h1 className='mb-4 text-4xl font-bold text-white'>{t('title')}</h1>
+        <h2 className='mb-8 text-lg text-gray-500'>{t('subTitle')}</h2>
         <SubmitForm />
       </div>
-      <Faq />
     </div>
   );
 }

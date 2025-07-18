@@ -4,11 +4,11 @@ export default function PriceItem({ title, isFree }: { title: string; isFree: bo
   return (
     <div
       className={cn(
-        'flex-center w-fit gap-1 rounded-[4px] border border-border px-[10px] py-[2px] text-sm text-muted-foreground',
-        isFree && 'border-accent text-accent',
+        'flex-center w-fit gap-1 rounded-[4px] border border-purple-400 px-[10px] py-[2px] text-sm font-medium text-white',
+        isFree && 'border-purple-400 text-purple-600',
       )}
     >
-      <div className={cn('size-2 rounded-full bg-muted-foreground', isFree && 'bg-accent')} />
+      <div className={cn('size-2 rounded-full bg-white', isFree && 'bg-purple-400')} />
       {title}
     </div>
   );

@@ -4,12 +4,17 @@ import { ChevronDown } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-interface AccordionProps extends React.ComponentPropsWithoutRef<typeof RadixAccordion.Root> {
+type AccordionProps = React.ComponentPropsWithoutRef<typeof RadixAccordion.Root> & {
   className?: string;
-}
+  children?: React.ReactNode;
+};
 
-function Accordion({ className, ...props }: AccordionProps) {
-  return <RadixAccordion.Root type='single' collapsible className={cn('w-full', className)} {...props} />;
+function Accordion({ className, children, ...props }: AccordionProps) {
+  return (
+    <RadixAccordion.Root className={cn('w-full', className)} {...props}>
+      {children}
+    </RadixAccordion.Root>
+  );
 }
 
 interface AccordionItemProps extends React.ComponentPropsWithoutRef<typeof RadixAccordion.Item> {

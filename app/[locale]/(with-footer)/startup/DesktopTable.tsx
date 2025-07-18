@@ -11,46 +11,60 @@ export default function DesktopTable() {
   const t = useTranslations('Startup.table');
 
   return (
-    <div className='mb-10 hidden w-full lg:block'>
-      <Table className='border-separate border-spacing-y-3'>
-        <TableHeader>
-          <TableRow className='tr-rounded h-16 rounded-[4px] border-none bg-muted hover:bg-muted'>
-            <TableHead className='w-[100px] text-2xl font-bold text-muted-foreground'>{t('da')}</TableHead>
-            <TableHead className='w-[200px] text-2xl font-bold text-muted-foreground'>{t('website')}</TableHead>
-            <TableHead className='w-[200px] text-2xl font-bold text-muted-foreground'>{t('tags')}</TableHead>
-            <TableHead className='w-[200px] text-2xl font-bold text-muted-foreground'>{t('price')}</TableHead>
-            <TableHead className='w-16 text-2xl font-bold text-muted-foreground'>{t('submission')}</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody className='space-y-3'>
-          {STARTUP_LIST.map((item) => (
-            <TableRow
-              key={item.DA}
-              className='tr-rounded h-16 rounded-[4px] border-none bg-card hover:bg-muted'
-            >
-              <TableCell className='text-sm text-card-foreground'>{item.DA}</TableCell>
-              <TableCell className='text-[18px] text-card-foreground'>{item.Website}</TableCell>
-              <TableCell className='flex gap-1'>
-                {item.Tag ? item.Tag.split(',').map((tag) => <TagItem key={tag} title={tag} />) : null}
-              </TableCell>
-              <TableCell>
-                <PriceItem title={item.Price} isFree={item.Price.toLowerCase() === 'free'} />
-              </TableCell>
-              <TableCell>
-                <a
-                  href={item.URL}
-                  target='_blank'
-                  rel='noreferrer'
-                  className='flex-center h-10 w-full rounded-[4px] border border-border hover:opacity-80'
-                >
-                  <SquareArrowOutUpRight className='text-muted-foreground' />
-                  <span className='sr-only'>{item.Website}</span>
-                </a>
-              </TableCell>
+    <div className='hidden w-full lg:block'>
+      <div className='overflow-x-auto'>
+        <Table className='w-full bg-transparent'>
+          <TableHeader>
+            <TableRow className='rounded-t-lg border-none bg-white/10'>
+              <TableHead className='w-[100px] border-b border-gray-600 px-6 py-4 text-lg font-bold text-white'>
+                {t('da')}
+              </TableHead>
+              <TableHead className='w-[200px] border-b border-gray-600 px-6 py-4 text-lg font-bold text-white'>
+                {t('website')}
+              </TableHead>
+              <TableHead className='w-[200px] border-b border-gray-600 px-6 py-4 text-lg font-bold text-white'>
+                {t('tags')}
+              </TableHead>
+              <TableHead className='w-[200px] border-b border-gray-600 px-6 py-4 text-lg font-bold text-white'>
+                {t('price')}
+              </TableHead>
+              <TableHead className='w-16 border-b border-gray-600 px-6 py-4 text-lg font-bold text-white'>
+                {t('submission')}
+              </TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {STARTUP_LIST.map((item, index) => (
+              <TableRow
+                key={item.DA}
+                className={`border-b border-white/50 bg-transparent px-6 py-3 even:bg-white/5 hover:bg-white/10 hover:shadow-md ${
+                  index % 2 === 0 ? '' : 'bg-white/5'
+                }`}
+              >
+                <TableCell className='px-6 py-3 font-medium text-white'>{item.DA}</TableCell>
+                <TableCell className='px-6 py-3 text-[18px] font-medium text-white'>{item.Website}</TableCell>
+                <TableCell className='flex gap-1 px-6 py-3'>
+                  {item.Tag ? item.Tag.split(',').map((tag) => <TagItem key={tag} title={tag} />) : null}
+                </TableCell>
+                <TableCell className='px-6 py-3'>
+                  <PriceItem title={item.Price} isFree={item.Price.toLowerCase() === 'free'} />
+                </TableCell>
+                <TableCell className='px-6 py-3'>
+                  <a
+                    href={item.URL}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='flex-center h-10 w-full rounded-[4px] hover:opacity-80'
+                  >
+                    <SquareArrowOutUpRight className='text-white' />
+                    <span className='sr-only'>{item.Website}</span>
+                  </a>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }

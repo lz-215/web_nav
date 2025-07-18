@@ -26,8 +26,8 @@ export default function Content({
 
   return (
     <>
-      <div className='mx-auto flex flex-col gap-3 py-5 lg:pt-10'>
-        <h1 className='text-center text-[28px] font-bold lg:text-5xl'>{headerTitle}</h1>
+      <div className='mx-auto flex flex-col gap-3 pt-8 lg:pt-16'>
+        <h1 className='text-center text-[28px] font-bold text-foreground lg:text-5xl'>{headerTitle}</h1>
         <div className='mx-auto'>
           <ExploreBreadcrumb
             linkList={[
@@ -46,7 +46,7 @@ export default function Content({
       <div className='mt-3'>
         {navigationList && !!navigationList?.length ? (
           <>
-            <div className='grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4'>
+            <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
               {navigationList.map((item) => (
                 <WebNavCard key={item.id} {...item} />
               ))}

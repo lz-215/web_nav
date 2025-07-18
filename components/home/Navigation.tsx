@@ -10,8 +10,7 @@ import { useTheme } from 'next-themes';
 import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
-import BaseImage from '../image/BaseImage';
-import LocaleSwitcher from '../LocaleSwitcher';
+import AnimatedLogo from '../ui/AnimatedLogo';
 import MenuBtn from './MenuBtn';
 import NavigationDrawer from './NavigationDrawer';
 
@@ -29,18 +28,11 @@ export default function Navigation() {
 
   return (
     <>
-      <header className='sticky left-0 top-0 z-50 flex h-[64px] border-b border-white/10 bg-[#1B71EA] px-5 transition-all duration-300 lg:px-0'>
+      <header className='sticky left-0 top-0 z-50 flex h-[64px] px-5 transition-all duration-300 lg:px-0'>
         <nav className='mx-auto flex max-w-pc flex-1 items-center'>
           <div>
             <Link className='transition-all duration-200 hover:scale-105 hover:opacity-80' href='/' title={t('title')}>
-              <BaseImage
-                src='/logo.svg'
-                alt={t('title')}
-                title={t('title')}
-                width={64}
-                height={64}
-                className='size-[58px] transition-transform duration-200 lg:size-16'
-              />
+              <AnimatedLogo size={58} animated className='transition-transform duration-200 lg:size-16' />
             </Link>
           </div>
           {/* pc */}
@@ -50,9 +42,9 @@ export default function Navigation() {
                 <Link key={item.code} href={item.href} title={item.code}>
                   <li
                     className={cn(
-                      'group relative flex h-full items-center text-white transition-all duration-200 hover:text-foreground',
-                      pathname === item.href && 'text-foreground',
-                      pathname.includes(item.href) && item.href !== '/' && 'text-foreground',
+                      'group relative flex h-full items-center text-gray-100 transition-all duration-200 hover:text-cyan-600',
+                      pathname === item.href && 'text-cyan-400',
+                      pathname.includes(item.href) && item.href !== '/' && 'text-cyan-400',
                     )}
                   >
                     {item.label}
@@ -62,7 +54,7 @@ export default function Navigation() {
               ))}
             </ul>
             <div className='flex items-center gap-x-3'>
-              <LocaleSwitcher />
+              {/* <LocaleSwitcher /> */}
               <button
                 type='button'
                 aria-label='Toggle theme'

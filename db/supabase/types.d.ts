@@ -117,6 +117,10 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      get_categories_by_lang: {
+        Args: { lang_code: string };
+        Returns: Database['public']['Tables']['navigation_category']['Row'][];
+      };
       [_ in never]: never;
     };
     Enums: {
@@ -131,6 +135,15 @@ export type Database = {
 export type NavigationCategory = Database['public']['Tables']['navigation_category']['Row'];
 export type Submit = Database['public']['Tables']['submit']['Row'];
 export type WebNavigation = Database['public']['Tables']['web_navigation']['Row'];
+
+export interface WebNavigationI18n {
+  id: number;
+  web_navigation_id: number;
+  lang: string;
+  title?: string | null;
+  content?: string | null;
+  detail?: string | null;
+}
 
 type PublicSchema = Database[Extract<keyof Database, 'public'>];
 

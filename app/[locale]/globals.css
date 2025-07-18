@@ -27,8 +27,8 @@
   }
 
   .dark {
-    --background: 206 50% 5%;
-    --foreground: 215 28% 92%; /* #e2e8f0 亮蓝灰 */
+    --background: 0 0% 0%; /* 黑色 */
+    --foreground: 0 0% 100%; /* 白色 */
     --card: 215 28% 14%;
     --card-foreground: 215 20% 90%; /* #cbd5e1 */
     --popover: 206 50% 5%;
@@ -81,7 +81,67 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  /* Enhanced logo glow animations */
+  @keyframes pulse-light {
+    0%, 100% {
+      filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6)); /* Cyan glow */
+    }
+    50% {
+      filter: drop-shadow(0 0 16px rgba(0, 240, 255, 0.9)); /* Brighter glow */
+    }
+  }
+
+  .animate-pulse-light {
+    animation: pulse-light 3s infinite ease-in-out;
+  }
+
+  /* Logo glow animations */
+  @keyframes logo-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 5px rgba(27, 113, 234, 0.3)) 
+              drop-shadow(0 0 10px rgba(0, 170, 255, 0.2))
+              drop-shadow(0 0 15px rgba(0, 255, 170, 0.1));
+    }
+    50% {
+      filter: drop-shadow(0 0 8px rgba(27, 113, 234, 0.5)) 
+              drop-shadow(0 0 15px rgba(0, 170, 255, 0.3))
+              drop-shadow(0 0 20px rgba(0, 255, 170, 0.2));
+    }
+  }
+
+  @keyframes logo-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes logo-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .logo-glow {
+    animation: logo-glow 3s ease-in-out infinite;
+  }
+
+  .logo-pulse {
+    animation: logo-pulse 2s ease-in-out infinite;
+  }
+
+  .logo-rotate {
+    animation: logo-rotate 20s linear infinite;
   }
 
   /* Chrome, Safari and Opera */
@@ -92,6 +152,33 @@
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+
+  /* 流光边框效果 */
+  @keyframes border-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .border-flow {
+    background: linear-gradient(90deg, #67e8f9, #a855f7, #67e8f9);
+    background-size: 200% 200%;
+    animation: border-flow 3s ease infinite;
+    border-radius: 9px;
+    padding: 1px;
+  }
+
+  .border-flow-inner {
+    background: linear-gradient(135deg, #67e8f9, #a855f7);
+    border-radius: 8px;
+    padding: 10px;
   }
 }
 

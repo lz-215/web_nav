@@ -41,21 +41,21 @@ export default function SearchForm({ defaultSearch }: { defaultSearch?: string }
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <div className='group relative flex w-full items-center'>
+                <div className='group relative flex w-full items-center justify-center'>
                   <Input
                     placeholder={t('search')}
                     {...field}
-                    className='h-8 w-full rounded-full border border-border !bg-background pr-10 text-foreground transition-all duration-300 placeholder:text-muted-foreground hover:border-primary focus:border-primary focus:shadow-lg focus:shadow-primary/20 lg:h-[38px] lg:w-[392px] lg:pr-12'
+                    className='h-12 w-full max-w-6xl rounded-full border border-gray-200 bg-white/10 pr-12 text-white transition-all duration-300 placeholder:text-gray-200 hover:border-gray-500 focus:border-cyan-400 focus:shadow-lg focus:shadow-cyan-400/20 lg:h-14 lg:pr-14'
                   />
                   <Separator
-                    className='absolute right-8 h-6 w-px bg-border transition-colors duration-300 group-focus-within:bg-primary lg:right-10'
+                    className='absolute right-12 h-8 w-px bg-gray-600 transition-colors duration-300 group-focus-within:bg-cyan-400 lg:right-14'
                     orientation='vertical'
                   />
                   <button
                     type='submit'
-                    className='absolute right-2 rounded-full p-1 transition-all duration-200 hover:scale-110 hover:bg-primary/20 active:scale-95 lg:right-3'
+                    className='absolute right-3 rounded-full p-2 transition-all duration-200 hover:scale-110 hover:bg-cyan-400/20 hover:text-cyan-400 active:scale-95 lg:right-4'
                   >
-                    <Search className='size-[18px] text-foreground lg:size-5' />
+                    <Search className='size-5 text-gray-400 transition-colors duration-200 group-hover:text-cyan-400 lg:size-6' />
                     <span className='sr-only'>search</span>
                   </button>
                 </div>

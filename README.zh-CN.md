@@ -13,7 +13,7 @@
 ## v2.0.0版本更新说明
 
 - AI站点数据采用supabase数据库存储
-- 对接Tap4 AI爬虫项目，支持提交和收录全自动
+- 对接AIDock爬虫项目，支持提交和收录全自动
 - 支持简易的分类和搜索
 
 注：如果你对数据库不熟悉，或者担心和v1.0.0版本的兼容问题，请点击切
@@ -48,12 +48,12 @@
 
 <a href="https://www.buymeacoffee.com/tap4ai0o" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
-如果你对项目有兴趣，欢迎添加我微信: helloleo2023, 备注: "tap4 ai开源"，也可以扫描二维码:
+如果你对项目有兴趣，欢迎添加我微信: helloleo2023, 备注: "aidock开源"，也可以扫描二维码:
 ![tap4-ai-wx](./public/images/tap4-ai-wechat.jpg)
 
 ## 部署说明
 
-### 部署Tap4 AI Crawler
+### 部署AIDock Crawler
 
 具体见[Tap4 AI Crawler](https://github.com/6677-ai/tap4-ai-crawler) 部署完成后，可以使用平台提供的域名或者自定义域名，作
 为生成AI工具网页内容的API接口(示例：https://{crawler_domain}/site/crawl, {crawler_domain}为你的具体域名)，**需要配置到
@@ -80,7 +80,7 @@ NEXT_PUBLIC_SITE_URL="https://tap4.ai"
 GOOGLE_TRACKING_ID="G-XXXXXXX" GOOGLE_ADSENSE_URL="https://xxxx.googlesyndication.com/xxxxx/xxxxx"
 
 # Contact email at the bottom
-CONTACT_US_EMAIL="contact@tap4.ai"
+CONTACT_US_EMAIL="ytsgabcde01@2925.com"
 
 # Supabase database URL and key
 NEXT_PUBLIC_SUPABASE_URL="https://xxxyyyzzz.supabase.co" NEXT_PUBLIC_SUPABASE_ANON_KEY="XXX.YYY.ZZZ"
@@ -144,7 +144,7 @@ GOOGLE_TRACKING_ID="G-XXXXXXX"
 GOOGLE_ADSENSE_URL="https://xxxx.googlesyndication.com/xxxxx/xxxxx"
 
 # Contact email at the bottom
-CONTACT_US_EMAIL="contact@tap4.ai"
+CONTACT_US_EMAIL="ytsgabcde01@2925.com"
 
 # Supabase database URL and key
 NEXT_PUBLIC_SUPABASE_URL="https://xxxyyyzzz.supabase.co"
@@ -214,7 +214,7 @@ pnpm dev
 ### TAP4-AI-Directory
 
 全球AI工具的集合。| 收集免费的ChatGPT镜像、替代品、prompt、其他AI工具等。欲了解更多信息，请访
-问：[Tap4 AI](https://tap4.ai)
+问：[AIDock](https://aidock.ai)
 
 ### 如何在网站列表中获得您的首批用户
 

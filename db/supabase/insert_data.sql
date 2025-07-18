@@ -1301,7 +1301,7 @@ INSERT INTO public.web_navigation (
 ) VALUES (
     'mymap-ai',
     'mymap.ai: Mapping Ideas That Change the World',
-    'MyMap turns your text ideas into visuals like mind maps and presentations through a simple chat interface. Ideal for students, teachers, and professionals with no design skills required. It’s your time-saving tool for easy, collaborative visual creation',
+    'MyMap turns your text ideas into visuals like mind maps and presentations through a simple chat interface. Ideal for students, teachers, and professionals with no design skills required. It's your time-saving tool for easy, collaborative visual creation',
     '
 ### What is MyMap.ai?
 MyMap.ai is a platform that turns your text ideas into visuals like mind maps and presentations through a simple chat interface, making it ideal for students, teachers, and professionals with no design skills required.
@@ -1445,7 +1445,7 @@ INSERT INTO public.web_navigation (
     name, title, content, detail, url, image_url, thumbnail_url, collection_time, tag_name, website_data, star_rating, category_name
 ) VALUES (
     'tap4-ai',
-    'Tap4 AI Tools Directory',
+    'AIDock Tools Directory',
     'We believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Building safe and beneficial AGI is our mission.',
     '
 ### What is tap4.ai?

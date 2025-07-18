@@ -43,7 +43,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className='w-full bg-background'>
+    <footer className='w-full'>
       <div className='mx-auto flex min-h-[80px] max-w-pc flex-col items-center justify-center p-6 lg:flex-row lg:justify-between lg:px-0'>
         <div className='flex flex-row items-center gap-6'>
           {INFO_LIST.map((item) => (
