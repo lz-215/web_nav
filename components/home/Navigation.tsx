@@ -3,9 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Moon, Sun } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useTheme } from 'next-themes';
 
 import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
@@ -17,7 +15,6 @@ import NavigationDrawer from './NavigationDrawer';
 export default function Navigation() {
   const t = useTranslations('Navigation');
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
 
   const [open, setOpen] = useState(false);
 
@@ -55,6 +52,7 @@ export default function Navigation() {
             </ul>
             <div className='flex items-center gap-x-3'>
               {/* <LocaleSwitcher /> */}
+              {/* 隐藏主题切换按钮
               <button
                 type='button'
                 aria-label='Toggle theme'
@@ -67,6 +65,7 @@ export default function Navigation() {
                   <Moon className='size-5 text-blue-500' />
                 )}
               </button>
+              */}
             </div>
           </div>
           {/* mobile */}

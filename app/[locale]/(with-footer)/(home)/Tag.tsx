@@ -236,3 +236,5 @@ export const TagList = forwardRef<
     </ul>
   );
 });
+
+TagList.displayName = 'TagList';
