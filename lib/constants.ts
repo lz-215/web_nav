@@ -21,9 +21,9 @@ export const RevalidateOneMonth = 3600 * 24 * 30;
 export const PAGE_SIZE = 20;
 export const InfoPageSize = 12;
 
-export const FORM_PLACEHOLDER = 'https://aidock.ai/';
+export const FORM_PLACEHOLDER = 'https://lxihh.com/';
 
-export const WEBSITE_EXAMPLE = '<a href="https://aidock.ai/" title="AIDock Tools Directory">AIDock Tools Directory</a>';
+export const WEBSITE_EXAMPLE = '<a href="https://lxihh.com/" title="AIDock Tools Directory">AIDock Tools Directory</a>';
 
 export const STARTUP_LIST = [
   {
