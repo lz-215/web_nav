@@ -1,4 +1,5 @@
 import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { Metadata } from 'next';
 
 import { Toaster } from '@/components/ui/sonner';
 import Navigation from '@/components/home/Navigation';
@@ -10,8 +11,16 @@ import { ThemeProvider } from 'next-themes';
 
 import GoogleAdScript from '@/components/ad/GoogleAdScript';
 import SeoScript from '@/components/seo/SeoScript';
+import GoogleAnalytics from '@/components/seo/GoogleAnalytics';
+import MicrosoftClarity from '@/components/seo/MicrosoftClarity';
 
 import Loading from './loading';
+
+export const metadata: Metadata = {
+  other: {
+    'google-site-verification': 'APfcSIovDqbS4yZU_6HpLVZXHL3vRIy7ExSWP_nc4u4',
+  },
+};
 
 export default function RootLayout({
   children,
@@ -43,6 +52,8 @@ export default function RootLayout({
           </NextIntlClientProvider>
           <SeoScript />
           <GoogleAdScript />
+          <GoogleAnalytics />
+          <MicrosoftClarity />
         </ThemeProvider>
       </body>
     </html>
