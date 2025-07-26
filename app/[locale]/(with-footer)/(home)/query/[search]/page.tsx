@@ -32,7 +32,27 @@ export const revalidate = RevalidateOneHour / 2;
 export default async function Page({ params }: { params: { search?: string; locale: string } }) {
   const supabase = createClient();
   const t = await getTranslations('Home');
-  const { data: categoryList } = await supabase.rpc('get_categories_by_lang', { lang_code: params.locale });
+  
+  // 硬编码的标签数据
+  const hardcodedTags = [
+    { id: '1', name: 'image', href: '/category/image' },
+    { id: '2', name: 'video', href: '/category/video' },
+    { id: '3', name: 'code-it', href: '/category/code-it' },
+    { id: '4', name: 'voice', href: '/category/voice' },
+    { id: '5', name: 'business', href: '/category/business' },
+    { id: '6', name: 'marketing', href: '/category/marketing' },
+    { id: '7', name: 'ai-detector', href: '/category/ai-detector' },
+    { id: '8', name: 'design-art', href: '/category/design-art' },
+    { id: '9', name: 'life-assistant', href: '/category/life-assistant' },
+    { id: '10', name: '3d', href: '/category/3d' },
+    { id: '11', name: 'education', href: '/category/education' },
+    { id: '12', name: 'prompt', href: '/category/prompt' },
+    { id: '13', name: 'productivity', href: '/category/productivity' },
+    { id: '14', name: 'other', href: '/category/other' },
+    { id: '15', name: 'chatbot', href: '/category/chatbot' },
+    { id: '16', name: 'text-writing', href: '/category/text-writing' },
+  ];
+  
   const { data: dataList } = await supabase
     .from('web_navigation')
     .select()
@@ -43,11 +63,8 @@ export default async function Page({ params }: { params: { search?: string; loca
       <div className='mb-10 mt-5'>
         {params?.search && (
           <TagList
-            data={categoryList!.map((item) => ({
-              id: String(item.id),
-              name: item.title, // 多语言 title
-              href: `/category/${item.name}`,
-            }))}
+            data={hardcodedTags}
+            locale={params.locale}
           />
         )}
       </div>

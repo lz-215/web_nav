@@ -50,15 +50,32 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   const localeKey = locale.replace('_', '-').toLowerCase();
   const lang = langMap[localeKey] || localeKey;
 
-  const [{ data: categoryList }, { data: navigationList }] = await Promise.all([
-    supabase.rpc('get_categories_by_lang', { lang_code: lang }),
-    supabase
-      .from('web_navigation')
-      .select('*, web_navigation_i18n(id,lang,title,content,detail)')
-      .eq('web_navigation_i18n.lang', lang)
-      .order('collection_time', { ascending: false })
-      .limit(12),
-  ]);
+  // 硬编码的标签数据
+  const hardcodedTags = [
+    { id: '1', name: 'image', href: '/category/image' },
+    { id: '2', name: 'video', href: '/category/video' },
+    { id: '3', name: 'code-it', href: '/category/code-it' },
+    { id: '4', name: 'voice', href: '/category/voice' },
+    { id: '5', name: 'business', href: '/category/business' },
+    { id: '6', name: 'marketing', href: '/category/marketing' },
+    { id: '7', name: 'ai-detector', href: '/category/ai-detector' },
+    { id: '8', name: 'design-art', href: '/category/design-art' },
+    { id: '9', name: 'life-assistant', href: '/category/life-assistant' },
+    { id: '10', name: '3d', href: '/category/3d' },
+    { id: '11', name: 'education', href: '/category/education' },
+    { id: '12', name: 'prompt', href: '/category/prompt' },
+    { id: '13', name: 'productivity', href: '/category/productivity' },
+    { id: '14', name: 'other', href: '/category/other' },
+    { id: '15', name: 'chatbot', href: '/category/chatbot' },
+    { id: '16', name: 'text-writing', href: '/category/text-writing' },
+  ];
+
+  const { data: navigationList } = await supabase
+    .from('web_navigation')
+    .select('*, web_navigation_i18n(id,lang,title,content,detail)')
+    .eq('web_navigation_i18n.lang', lang)
+    .order('collection_time', { ascending: false })
+    .limit(12);
 
   // 合并翻译字段，优先用i18n
   const mergedList =
@@ -85,13 +102,9 @@ export default async function Page({ params: { locale } }: { params: { locale: s
         <div className='mt-8 flex w-full items-center justify-center delay-300 duration-1000 animate-in slide-in-from-bottom-4 lg:mt-12'>
           <SearchForm />
         </div>
-        {/* 标签区块改为客户端组件，传递数据 */}
+        {/* 使用硬编码的标签数据 */}
         <TagListWithScroll
-          data={categoryList!.map((item) => ({
-            id: String(item.id),
-            name: item.name, // 用英文唯一标识作为 key，便于多语言切换
-            href: `/category/${item.name}`,
-          }))}
+          data={hardcodedTags}
           locale={lang}
         />
         <div className='flex flex-col gap-5 delay-700 duration-1000 animate-in slide-in-from-bottom-4'>

@@ -20,15 +20,32 @@ export default async function ExploreList({ pageNum, locale }: { pageNum?: strin
   const start = (currentPage - 1) * WEB_PAGE_SIZE;
   const end = start + WEB_PAGE_SIZE - 1;
 
-  const [{ data: categoryList }, { data: navigationList, count }] = await Promise.all([
-    supabase.rpc('get_categories_by_lang', { lang_code: lang }),
-    supabase
-      .from('web_navigation')
-      .select('*, web_navigation_i18n(id,lang,title,content,detail)')
-      .eq('web_navigation_i18n.lang', lang)
-      .order('collection_time', { ascending: false })
-      .range(start, end),
-  ]);
+  // 硬编码的标签数据
+  const hardcodedTags = [
+    { id: '1', name: 'image', href: '/category/image' },
+    { id: '2', name: 'video', href: '/category/video' },
+    { id: '3', name: 'code-it', href: '/category/code-it' },
+    { id: '4', name: 'voice', href: '/category/voice' },
+    { id: '5', name: 'business', href: '/category/business' },
+    { id: '6', name: 'marketing', href: '/category/marketing' },
+    { id: '7', name: 'ai-detector', href: '/category/ai-detector' },
+    { id: '8', name: 'design-art', href: '/category/design-art' },
+    { id: '9', name: 'life-assistant', href: '/category/life-assistant' },
+    { id: '10', name: '3d', href: '/category/3d' },
+    { id: '11', name: 'education', href: '/category/education' },
+    { id: '12', name: 'prompt', href: '/category/prompt' },
+    { id: '13', name: 'productivity', href: '/category/productivity' },
+    { id: '14', name: 'other', href: '/category/other' },
+    { id: '15', name: 'chatbot', href: '/category/chatbot' },
+    { id: '16', name: 'text-writing', href: '/category/text-writing' },
+  ];
+
+  const { data: navigationList, count } = await supabase
+    .from('web_navigation')
+    .select('*, web_navigation_i18n(id,lang,title,content,detail)')
+    .eq('web_navigation_i18n.lang', lang)
+    .order('collection_time', { ascending: false })
+    .range(start, end);
 
   // 合并翻译字段，优先用i18n
   const mergedList =
@@ -46,11 +63,8 @@ export default async function ExploreList({ pageNum, locale }: { pageNum?: strin
       </div>
       <div className='mb-10 mt-5'>
         <TagList
-          data={categoryList!.map((item) => ({
-            id: String(item.id),
-            name: item.title, // 多语言 title
-            href: `/category/${item.name}`,
-          }))}
+          data={hardcodedTags}
+          locale={lang}
         />
       </div>
       <WebNavCardList dataList={mergedList} />
