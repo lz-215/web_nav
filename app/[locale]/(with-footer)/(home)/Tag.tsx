@@ -22,8 +22,11 @@ export function TagItem({ children, isSelected = false }: { children: React.Reac
 }
 
 export function TagLink({ name, href, isSelected = false }: { name: string; href: string; isSelected?: boolean }) {
+  // 将category路径转换为搜索路径
+  const searchHref = href.startsWith('/category/') ? `/query/${encodeURIComponent(name)}` : href;
+
   return (
-    <Link href={href} title={name} className='transition-transform duration-200 hover:scale-105'>
+    <Link href={searchHref} title={name} className='transition-transform duration-200 hover:scale-105'>
       <TagItem isSelected={isSelected}>{name}</TagItem>
     </Link>
   );

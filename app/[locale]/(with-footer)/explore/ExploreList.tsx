@@ -22,22 +22,22 @@ export default async function ExploreList({ pageNum, locale }: { pageNum?: strin
 
   // 硬编码的标签数据
   const hardcodedTags = [
-    { id: '1', name: 'image', href: '/category/image' },
-    { id: '2', name: 'video', href: '/category/video' },
-    { id: '3', name: 'code-it', href: '/category/code-it' },
-    { id: '4', name: 'voice', href: '/category/voice' },
-    { id: '5', name: 'business', href: '/category/business' },
-    { id: '6', name: 'marketing', href: '/category/marketing' },
-    { id: '7', name: 'ai-detector', href: '/category/ai-detector' },
-    { id: '8', name: 'design-art', href: '/category/design-art' },
-    { id: '9', name: 'life-assistant', href: '/category/life-assistant' },
-    { id: '10', name: '3d', href: '/category/3d' },
-    { id: '11', name: 'education', href: '/category/education' },
-    { id: '12', name: 'prompt', href: '/category/prompt' },
-    { id: '13', name: 'productivity', href: '/category/productivity' },
-    { id: '14', name: 'other', href: '/category/other' },
-    { id: '15', name: 'chatbot', href: '/category/chatbot' },
-    { id: '16', name: 'text-writing', href: '/category/text-writing' },
+    { id: '1', name: 'image', href: '/query/image' },
+    { id: '2', name: 'video', href: '/query/video' },
+    { id: '3', name: 'code-it', href: '/query/code-it' },
+    { id: '4', name: 'voice', href: '/query/voice' },
+    { id: '5', name: 'business', href: '/query/business' },
+    { id: '6', name: 'marketing', href: '/query/marketing' },
+    { id: '7', name: 'ai-detector', href: '/query/ai-detector' },
+    { id: '8', name: 'design-art', href: '/query/design-art' },
+    { id: '9', name: 'life-assistant', href: '/query/life-assistant' },
+    { id: '10', name: '3d', href: '/query/3d' },
+    { id: '11', name: 'education', href: '/query/education' },
+    { id: '12', name: 'prompt', href: '/query/prompt' },
+    { id: '13', name: 'productivity', href: '/query/productivity' },
+    { id: '14', name: 'other', href: '/query/other' },
+    { id: '15', name: 'chatbot', href: '/query/chatbot' },
+    { id: '16', name: 'text-writing', href: '/query/text-writing' },
   ];
 
   const { data: navigationList, count } = await supabase
