@@ -9,7 +9,7 @@ import { Separator } from '@/components/ui/separator';
 import Empty from '@/components/Empty';
 import WebNavCardList from '@/components/webNav/WebNavCardList';
 
-import { TagList } from '../../Tag';
+import { TagListWithScroll } from '../../Tag';
 import Loading from './loading';
 
 const ScrollToTop = dynamic(() => import('@/components/page/ScrollToTop'), { ssr: false });
@@ -63,7 +63,9 @@ export default async function Page({ params }: { params: { search?: string; loca
 
   return (
     <Suspense fallback={<Loading />}>
-      <div className='mb-10 mt-5'>{params?.search && <TagList data={hardcodedTags} locale={params.locale} />}</div>
+      <div className='mb-10 mt-5'>
+        {params?.search && <TagListWithScroll data={hardcodedTags} locale={params.locale} />}
+      </div>
       <section className='flex flex-col gap-5'>
         {dataList && !!dataList.length && params?.search ? (
           <>

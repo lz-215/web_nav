@@ -1,8 +1,9 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -241,3 +242,124 @@ export const TagList = forwardRef<
 });
 
 TagList.displayName = 'TagList';
+
+// 带滑动按钮的标签列表组件
+export const TagListWithScroll = forwardRef<
+  HTMLDivElement,
+  { data: { name: string; href: string; id: string }[]; locale?: string }
+>(({ data, locale }, ref) => {
+  const pathname = usePathname();
+  const scrollContainerRef = useRef<HTMLUListElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  // locale 归一化
+  function normalizeLocale(lc?: string) {
+    if (!lc) return 'en';
+    const l = lc.toLowerCase().replace('_', '-');
+    if (['zh-tw', 'zh_tw', 'zh-hant', 'zh_hant', 'zh-hk', 'zh_hk', 'zh-mo', 'zh_mo'].includes(l)) return 'zh-TW';
+    if (['zh', 'zh-cn', 'zh_cn', 'zh-hans', 'zh_hans'].includes(l)) return 'zh';
+    return l.split('-')[0]; // 例如 de-DE → de
+  }
+  const normalized = normalizeLocale(locale);
+
+  // 多级 fallback
+  function getLabels() {
+    if (TAG_LABELS[normalized]) return TAG_LABELS[normalized];
+    if (normalized === 'zh-TW' && TAG_LABELS.zh) return TAG_LABELS.zh;
+    return TAG_LABELS.en;
+  }
+  const labels = getLabels();
+
+  // 检查是否可以滚动
+  const checkScrollButtons = () => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      setCanScrollLeft(container.scrollLeft > 0);
+      setCanScrollRight(container.scrollLeft < container.scrollWidth - container.clientWidth);
+    }
+    return undefined;
+  };
+
+  // 滑动到左侧
+  const scrollLeft = () => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.scrollBy({ left: -200, behavior: 'smooth' });
+    }
+  };
+
+  // 滑动到右侧
+  const scrollRight = () => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.scrollBy({ left: 200, behavior: 'smooth' });
+    }
+  };
+
+  // 监听滚动事件
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      checkScrollButtons();
+      container.addEventListener('scroll', checkScrollButtons);
+      window.addEventListener('resize', checkScrollButtons);
+
+      return () => {
+        container.removeEventListener('scroll', checkScrollButtons);
+        window.removeEventListener('resize', checkScrollButtons);
+      };
+    }
+    return undefined;
+  }, [data]);
+
+  return (
+    <div ref={ref} className='relative flex items-center'>
+      {/* 左侧滑动按钮 */}
+      {canScrollLeft && (
+        <button
+          type='button'
+          onClick={scrollLeft}
+          className='absolute left-0 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white/20'
+          aria-label='Scroll left'
+        >
+          <ChevronLeft className='h-4 w-4' />
+        </button>
+      )}
+
+      {/* 标签容器 */}
+      <ul
+        ref={scrollContainerRef}
+        className='no-scrollbar flex max-w-full flex-1 items-center gap-3 overflow-auto px-2'
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {data.map((item) => {
+          const isSelected = pathname === item.href || (pathname.includes(item.href) && item.href !== '/');
+          return (
+            <li key={item.href} className='flex-shrink-0'>
+              <TagLink
+                name={labels[item.name] || TAG_LABELS.zh?.[item.name] || TAG_LABELS.en?.[item.name] || item.name}
+                href={item.href}
+                isSelected={isSelected}
+              />
+            </li>
+          );
+        })}
+      </ul>
+
+      {/* 右侧滑动按钮 */}
+      {canScrollRight && (
+        <button
+          type='button'
+          onClick={scrollRight}
+          className='absolute right-0 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white/20'
+          aria-label='Scroll right'
+        >
+          <ChevronRight className='h-4 w-4' />
+        </button>
+      )}
+    </div>
+  );
+});
+
+TagListWithScroll.displayName = 'TagListWithScroll';
