@@ -62,10 +62,7 @@ export default async function ExploreList({ pageNum, locale }: { pageNum?: strin
         <SearchForm />
       </div>
       <div className='mb-10 mt-5'>
-        <TagList
-          data={hardcodedTags}
-          locale={lang}
-        />
+        <TagList data={hardcodedTags} locale={lang} />
       </div>
       <WebNavCardList dataList={mergedList} />
       <BasePagination

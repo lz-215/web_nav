@@ -1,8 +1,8 @@
 # 开源AIDock Web UI
 
-这是一个由[AIDock导航站](https://lxihh.com)开源的AI导航站项目。我们的目标是让大家很容易就拥有一个属于自己的AI导航站，
-收录自己喜欢的AI工具产品。这个项目非常轻量级，维护简单，适合对AI导航站感兴趣的个人开发者，也适合对NextJs有兴趣的学习者，
-欢迎大家fork和star。
+这是一个由[AIDock导航站](https://lxihh.com)开源的AI导航站项目。我们的目标是让大家很容易就拥有一个属于自己的AI导航站，收
+录自己喜欢的AI工具产品。这个项目非常轻量级，维护简单，适合对AI导航站感兴趣的个人开发者，也适合对NextJs有兴趣的学习者，欢
+迎大家fork和star。
 
 [English](https://github.com/6677-ai/aidock-webui/blob/main/README.md) | 简体中文
 

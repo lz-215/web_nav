@@ -107,25 +107,25 @@ export default async function Page({
           </div>
         </a>
       </div>
-      <div className='mb-5 px-3 lg:px-0 space-y-8'>
+      <div className='mb-5 space-y-8 px-3 lg:px-0'>
         {/* 简介 */}
         {detailObj.what_is && (
           <section>
-            <h2 className='text-2xl font-bold mb-2'>What is {detailObj.website_name}?</h2>
+            <h2 className='mb-2 text-2xl font-bold'>What is {detailObj.website_name}?</h2>
             <MarkdownProse markdown={detailObj.what_is} />
           </section>
         )}
         {/* 使用方法 */}
         {detailObj.how_to_use && (
           <section>
-            <h2 className='text-2xl font-bold mb-2'>How to use</h2>
+            <h2 className='mb-2 text-2xl font-bold'>How to use</h2>
             <MarkdownProse markdown={detailObj.how_to_use} />
           </section>
         )}
         {/* 核心功能 */}
         {detailObj.core_features && (
           <section>
-            <h2 className='text-2xl font-bold mb-2'>Core Features</h2>
+            <h2 className='mb-2 text-2xl font-bold'>Core Features</h2>
             <ul className='list-disc pl-6'>
               {detailObj.core_features.map((f: string) => (
                 <li key={f}>{f}</li>
@@ -136,7 +136,7 @@ export default async function Page({
         {/* 适用场景 */}
         {detailObj.use_cases && (
           <section>
-            <h2 className='text-2xl font-bold mb-2'>Use Cases</h2>
+            <h2 className='mb-2 text-2xl font-bold'>Use Cases</h2>
             <ul className='list-disc pl-6'>
               {detailObj.use_cases.map((u: string) => (
                 <li key={u}>{u}</li>
@@ -147,7 +147,7 @@ export default async function Page({
         {/* FAQ */}
         {detailObj.faq && (
           <section>
-            <h2 className='text-2xl font-bold mb-2'>FAQ</h2>
+            <h2 className='mb-2 text-2xl font-bold'>FAQ</h2>
             <div className='space-y-4'>
               {detailObj.faq.map((item: { q: string; a: string }) => (
                 <div key={item.q}>
@@ -161,12 +161,12 @@ export default async function Page({
         {/* 价格 */}
         {detailObj.pricing && (
           <section>
-            <h2 className='text-2xl font-bold mb-2'>Pricing</h2>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+            <h2 className='mb-2 text-2xl font-bold'>Pricing</h2>
+            <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
               {detailObj.pricing.map((p: { name: string; price: string; description: string }) => (
-                <div key={p.name} className='rounded-lg border p-4 bg-white/5'>
-                  <div className='font-bold text-lg'>{p.name}</div>
-                  <div className='text-purple-600 font-semibold'>{p.price}</div>
+                <div key={p.name} className='rounded-lg border bg-white/5 p-4'>
+                  <div className='text-lg font-bold'>{p.name}</div>
+                  <div className='font-semibold text-purple-600'>{p.price}</div>
                   <div className='text-gray-500'>{p.description}</div>
                 </div>
               ))}
@@ -176,10 +176,10 @@ export default async function Page({
         {/* 优缺点 */}
         {detailObj.pros_and_cons && (
           <section>
-            <h2 className='text-2xl font-bold mb-2'>Pros & Cons</h2>
-            <div className='flex flex-col md:flex-row gap-8'>
+            <h2 className='mb-2 text-2xl font-bold'>Pros & Cons</h2>
+            <div className='flex flex-col gap-8 md:flex-row'>
               <div>
-                <div className='font-semibold text-green-600 mb-1'>Pros</div>
+                <div className='mb-1 font-semibold text-green-600'>Pros</div>
                 <ul className='list-disc pl-6'>
                   {detailObj.pros_and_cons.pros.map((p: string) => (
                     <li key={p}>{p}</li>
@@ -187,7 +187,7 @@ export default async function Page({
                 </ul>
               </div>
               <div>
-                <div className='font-semibold text-red-600 mb-1'>Cons</div>
+                <div className='mb-1 font-semibold text-red-600'>Cons</div>
                 <ul className='list-disc pl-6'>
                   {detailObj.pros_and_cons.cons.map((c: string) => (
                     <li key={c}>{c}</li>

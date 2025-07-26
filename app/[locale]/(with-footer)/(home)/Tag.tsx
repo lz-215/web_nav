@@ -196,8 +196,8 @@ const TAG_LABELS: Record<string, Record<string, string>> = {
 
 // fallback 机制
 export const TagList = forwardRef<
-HTMLUListElement,
-{ data: { name: string; href: string; id: string }[]; locale?: string }
+  HTMLUListElement,
+  { data: { name: string; href: string; id: string }[]; locale?: string }
 >(({ data, locale }, ref) => {
   const pathname = usePathname();
 

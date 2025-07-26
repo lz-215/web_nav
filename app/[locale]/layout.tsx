@@ -1,5 +1,5 @@
-import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { Metadata } from 'next';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 import { Toaster } from '@/components/ui/sonner';
 import Navigation from '@/components/home/Navigation';
@@ -10,9 +10,9 @@ import { Suspense } from 'react';
 import { ThemeProvider } from 'next-themes';
 
 import GoogleAdScript from '@/components/ad/GoogleAdScript';
-import SeoScript from '@/components/seo/SeoScript';
 import GoogleAnalytics from '@/components/seo/GoogleAnalytics';
 import MicrosoftClarity from '@/components/seo/MicrosoftClarity';
+import SeoScript from '@/components/seo/SeoScript';
 
 import Loading from './loading';
 

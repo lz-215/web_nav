@@ -57,14 +57,14 @@ python scripts/batch-replace-messages.py --restore
 
 ## 参数说明
 
-| 参数 | 说明 |
-|------|------|
-| `search_value` | 要搜索的内容 |
-| `replace_value` | 替换后的内容 |
-| `--case-sensitive` | 区分大小写匹配 |
-| `--no-backup` | 不创建备份文件 |
-| `--dry-run` | 预览模式，只显示会进行的更改，不实际修改文件 |
-| `--restore` | 从备份恢复所有文件 |
+| 参数               | 说明                                         |
+| ------------------ | -------------------------------------------- |
+| `search_value`     | 要搜索的内容                                 |
+| `replace_value`    | 替换后的内容                                 |
+| `--case-sensitive` | 区分大小写匹配                               |
+| `--no-backup`      | 不创建备份文件                               |
+| `--dry-run`        | 预览模式，只显示会进行的更改，不实际修改文件 |
+| `--restore`        | 从备份恢复所有文件                           |
 
 ## 安全特性
 
@@ -75,6 +75,7 @@ python scripts/batch-replace-messages.py --restore
 ## 使用示例
 
 ### 场景1: 更换品牌名称
+
 ```bash
 # 预览更改
 node scripts/batch-replace-messages.js "NaviAI" "MyBrand" --dry-run
@@ -84,11 +85,13 @@ node scripts/batch-replace-messages.js "NaviAI" "MyBrand"
 ```
 
 ### 场景2: 更新版权信息
+
 ```bash
 python scripts/batch-replace-messages.py "2024" "2025"
 ```
 
 ### 场景3: 修正拼写错误
+
 ```bash
 # 区分大小写的精确替换
 node scripts/batch-replace-messages.js "recieve" "receive" --case-sensitive

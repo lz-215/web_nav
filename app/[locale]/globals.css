@@ -86,7 +86,8 @@
 
   /* Enhanced logo glow animations */
   @keyframes pulse-light {
-    0%, 100% {
+    0%,
+    100% {
       filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6)); /* Cyan glow */
     }
     50% {
@@ -100,20 +101,20 @@
 
   /* Logo glow animations */
   @keyframes logo-glow {
-    0%, 100% {
-      filter: drop-shadow(0 0 5px rgba(27, 113, 234, 0.3)) 
-              drop-shadow(0 0 10px rgba(0, 170, 255, 0.2))
-              drop-shadow(0 0 15px rgba(0, 255, 170, 0.1));
+    0%,
+    100% {
+      filter: drop-shadow(0 0 5px rgba(27, 113, 234, 0.3)) drop-shadow(0 0 10px rgba(0, 170, 255, 0.2))
+        drop-shadow(0 0 15px rgba(0, 255, 170, 0.1));
     }
     50% {
-      filter: drop-shadow(0 0 8px rgba(27, 113, 234, 0.5)) 
-              drop-shadow(0 0 15px rgba(0, 170, 255, 0.3))
-              drop-shadow(0 0 20px rgba(0, 255, 170, 0.2));
+      filter: drop-shadow(0 0 8px rgba(27, 113, 234, 0.5)) drop-shadow(0 0 15px rgba(0, 170, 255, 0.3))
+        drop-shadow(0 0 20px rgba(0, 255, 170, 0.2));
     }
   }
 
   @keyframes logo-pulse {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
       opacity: 1;
     }

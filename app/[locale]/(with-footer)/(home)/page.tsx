@@ -103,10 +103,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           <SearchForm />
         </div>
         {/* 使用硬编码的标签数据 */}
-        <TagListWithScroll
-          data={hardcodedTags}
-          locale={lang}
-        />
+        <TagListWithScroll data={hardcodedTags} locale={lang} />
         <div className='flex flex-col gap-5 delay-700 duration-1000 animate-in slide-in-from-bottom-4'>
           <h2 className='text-center text-[18px] font-bold text-white lg:text-[32px]'>{t('ai-navigate')}</h2>
           <WebNavCardList dataList={mergedList} />

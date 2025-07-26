@@ -32,7 +32,7 @@ export const revalidate = RevalidateOneHour / 2;
 export default async function Page({ params }: { params: { search?: string; locale: string } }) {
   const supabase = createClient();
   const t = await getTranslations('Home');
-  
+
   // 硬编码的标签数据
   const hardcodedTags = [
     { id: '1', name: 'image', href: '/category/image' },
@@ -52,7 +52,7 @@ export default async function Page({ params }: { params: { search?: string; loca
     { id: '15', name: 'chatbot', href: '/category/chatbot' },
     { id: '16', name: 'text-writing', href: '/category/text-writing' },
   ];
-  
+
   const { data: dataList } = await supabase
     .from('web_navigation')
     .select()
@@ -60,14 +60,7 @@ export default async function Page({ params }: { params: { search?: string; loca
 
   return (
     <Suspense fallback={<Loading />}>
-      <div className='mb-10 mt-5'>
-        {params?.search && (
-          <TagList
-            data={hardcodedTags}
-            locale={params.locale}
-          />
-        )}
-      </div>
+      <div className='mb-10 mt-5'>{params?.search && <TagList data={hardcodedTags} locale={params.locale} />}</div>
       <section className='flex flex-col gap-5'>
         {dataList && !!dataList.length && params?.search ? (
           <>
