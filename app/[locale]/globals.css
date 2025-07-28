@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 206 100% 95%;
+    --foreground: 215 28% 17%; /* #1e293b 深蓝灰 */
+    --card: 215 28% 98%;
+    --card-foreground: 215 20% 20%; /* #334155 */
+    --popover: 206 100% 95%;
+    --popover-foreground: 206 100% 0%;
+    --primary: 206 81% 80%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 206 30% 70%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 215 28% 90%;
+    --muted-foreground: 215 19% 48%; /* #64748b */
+    --accent: 168 30% 80%;
+    --accent-foreground: 206 5% 10%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 206 5% 90%;
+    --border: 206 30% 50%;
+    --input: 206 30% 18%;
+    --ring: 206 81% 80%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%; /* 黑色 */
+    --foreground: 0 0% 100%; /* 白色 */
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 206 81% 80%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 0%;
+    --muted-foreground: 0 0% 100%;
+    --accent: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 206 81% 80%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-y-center {
+    @apply flex flex-col items-center;
+  }
+
+  .bg-frosted-glass {
+    @apply backdrop-blur-lg backdrop-filter;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  }
+
+  .gradient-card {
+    background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  /* Enhanced logo glow animations */
+  @keyframes pulse-light {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6)); /* Cyan glow */
+    }
+    50% {
+      filter: drop-shadow(0 0 16px rgba(0, 240, 255, 0.9)); /* Brighter glow */
+    }
+  }
+
+  .animate-pulse-light {
+    animation: pulse-light 3s infinite ease-in-out;
+  }
+
+  /* Logo glow animations */
+  @keyframes logo-glow {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 5px rgba(27, 113, 234, 0.3)) drop-shadow(0 0 10px rgba(0, 170, 255, 0.2))
+        drop-shadow(0 0 15px rgba(0, 255, 170, 0.1));
+    }
+    50% {
+      filter: drop-shadow(0 0 8px rgba(27, 113, 234, 0.5)) drop-shadow(0 0 15px rgba(0, 170, 255, 0.3))
+        drop-shadow(0 0 20px rgba(0, 255, 170, 0.2));
+    }
+  }
+
+  @keyframes logo-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes logo-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .logo-glow {
+    animation: logo-glow 3s ease-in-out infinite;
+  }
+
+  .logo-pulse {
+    animation: logo-pulse 2s ease-in-out infinite;
+  }
+
+  .logo-rotate {
+    animation: logo-rotate 20s linear infinite;
+  }
+
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* 流光边框效果 */
+  @keyframes border-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .border-flow {
+    background: linear-gradient(90deg, #67e8f9, #a855f7, #67e8f9);
+    background-size: 200% 200%;
+    animation: border-flow 3s ease infinite;
+    border-radius: 9px;
+    padding: 1px;
+  }
+
+  .border-flow-inner {
+    background: linear-gradient(135deg, #67e8f9, #a855f7);
+    border-radius: 8px;
+    padding: 10px;
+  }
+}
+
+@layer components {
+  .btn-primary-dark {
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+.tr-rounded {
+  clip-path: xywh(0 0 100% 100% round 4px);
+}
